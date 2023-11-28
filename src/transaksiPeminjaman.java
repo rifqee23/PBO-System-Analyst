@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class transaksiPeminjaman extends anggotaPerpustakaan{
     private int idTransaksi;
     private double noAnggota;
