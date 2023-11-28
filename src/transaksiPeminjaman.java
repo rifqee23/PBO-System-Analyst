@@ -1,13 +1,14 @@
+import java.time.LocalDate;
 
 public class transaksiPeminjaman extends anggotaPerpustakaan{
     private int idTransaksi;
     private int noAnggota;
     private int noISBN;
-    private String tanggalPeminjaman;
-    private String tenggatWaktu;
+    private LocalDate tanggalPeminjaman;
+    private LocalDate tenggatWaktu;
     private Buku buku;
 
-    public transaksiPeminjaman(int idTransaksi, int noAnggota, int noISBN, String tanggalPeminjaman, String tenggatWaktu, Buku buku) {
+    public transaksiPeminjaman(int idTransaksi, int noAnggota, int noISBN, LocalDate tanggalPeminjaman, LocalDate tenggatWaktu, Buku buku) {
         super();
         this.idTransaksi = idTransaksi;
         this.noAnggota = noAnggota;
@@ -43,19 +44,19 @@ public class transaksiPeminjaman extends anggotaPerpustakaan{
         this.noISBN = noISBN;
     }
 
-    public String getTanggalPeminjaman() {
+    public LocalDate getTanggalPeminjaman() {
         return tanggalPeminjaman;
     }
 
-    public void setTanggalPeminjaman(String tanggalPeminjaman) {
+    public void setTanggalPeminjaman(LocalDate tanggalPeminjaman) {
         this.tanggalPeminjaman = tanggalPeminjaman;
     }
 
-    public String getTenggatWaktu() {
+    public LocalDate getTenggatWaktu() {
         return tenggatWaktu;
     }
 
-    public void setTenggatWaktu(String tenggatWaktu) {
+    public void setTenggatWaktu(LocalDate tenggatWaktu) {
         this.tenggatWaktu = tenggatWaktu;
     }
 
@@ -67,14 +68,17 @@ public class transaksiPeminjaman extends anggotaPerpustakaan{
         this.buku = buku;
     }
 
-    public transaksiPeminjaman(Buku buku){
-        this.buku = buku;
-    }
     public void catatanPeminjaman(){
-        System.out.println("Catatan Peminjaman: Transaksi " + this.idTransaksi + ", Anggota " + this.noAnggota +
-                ", Buku ISBN " + this.noISBN + ", Tanggal Peminjaman " + this.tanggalPeminjaman +
-                ", Tenggat Waktu " + this.tenggatWaktu +
-                "\nID Buku " + this.buku.getIdBuku() + "Judul " + this.buku.getJudul() + "NO ISBN " +
-                this.buku.getNoISBN() + "Status Ketersediaan : " + this.buku.getStatusKetersediaan());
+        System.out.println("ID Transaksi: " + this.idTransaksi);
+        System.out.println("Nomor anggota: " + this.noAnggota);
+        System.out.println("Nomor ISBN: " + this.noISBN);
+        System.out.println("Tanggal peminjaman: " + this.tanggalPeminjaman);
+        System.out.println("Tanggal pengembalian: " + this.tenggatWaktu);
+
+        System.out.println("Informasi buku:");
+        System.out.println("ID buku: " + buku.getIdBuku());
+        System.out.println("Judul: " + buku.getJudul());
+        System.out.println("Nomor ISBN: " + buku.getNoISBN());
+        System.out.println("Status ketersediaan: " + buku.getStatusKetersediaan());
     }
 }

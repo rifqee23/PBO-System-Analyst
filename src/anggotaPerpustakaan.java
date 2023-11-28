@@ -5,17 +5,20 @@ public class anggotaPerpustakaan {
         private int noAnggota;
         private String alamat;
         private ArrayList<transaksiPeminjaman> riwayatPeminjaman;
+        private ArrayList<Notifikasi> notifikasi;
 
-        public anggotaPerpustakaan(String nama, int noAnggota, String alamat, ArrayList<transaksiPeminjaman> riwayatPeminjaman) {
+        public anggotaPerpustakaan(String nama, int noAnggota, String alamat, ArrayList<transaksiPeminjaman> riwayatPeminjaman, ArrayList<Notifikasi> notifikasi) {
                 this.nama = nama;
                 this.noAnggota = noAnggota;
                 this.alamat = alamat;
                 this.riwayatPeminjaman = riwayatPeminjaman;
+                this.notifikasi = notifikasi;
         }
 
         public anggotaPerpustakaan() {
 
         }
+
 
         public String getNama() {
                 return nama;
@@ -49,6 +52,14 @@ public class anggotaPerpustakaan {
                 this.riwayatPeminjaman = riwayatPeminjaman;
         }
 
+        public ArrayList<Notifikasi> getNotifikasi() {
+                return notifikasi;
+        }
+
+        public void setNotifikasi(ArrayList<Notifikasi> notifikasi) {
+                this.notifikasi = notifikasi;
+        }
+
         public void viewRiwayatPeminjaman(){
                 System.out.println("Riwayat Peminjaman: ");
                 for (transaksiPeminjaman transaksi : riwayatPeminjaman){
@@ -70,6 +81,11 @@ public class anggotaPerpustakaan {
                         System.out.println("Buku " + judul + " Tidak tersedia/sedang dipinjam");
                 }
         }
-        public void terimaNotif(){}
+        public void terimaNotif(){
+                System.out.println("Notifikasi untuk anggota " + nama + ":");
+                for (Notifikasi notif : notifikasi) {
+                        System.out.println(notif.getPesan());
+                }
+        }
 
 }
