@@ -1,4 +1,6 @@
 
+
+
 public class transaksiPeminjaman extends anggotaPerpustakaan{
     private int idTransaksi;
     private int noAnggota;
@@ -16,6 +18,7 @@ public class transaksiPeminjaman extends anggotaPerpustakaan{
         this.tenggatWaktu = tenggatWaktu;
         this.buku = buku;
     }
+
 
     public int getIdTransaksi() {
         return idTransaksi;
