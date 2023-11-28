@@ -15,9 +15,7 @@ public class transaksiPeminjaman extends anggotaPerpustakaan{
         this.buku = buku;
     }
 
-    public transaksiPeminjaman(Buku buku){
-        this.buku = buku;
-    }
+    
     public void catatanPeminjaman(){
         System.out.println("Catatan Peminjaman: Transaksi " + this.idTransaksi + ", Anggota " + this.noAnggota +
                 ", Buku ISBN " + this.noISBN + ", Tanggal Peminjaman " + this.tanggalPeminjaman +
