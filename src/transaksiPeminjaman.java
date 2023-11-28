@@ -7,6 +7,16 @@ public class transaksiPeminjaman extends anggotaPerpustakaan{
     private String tanggalPeminjaman;
     private String tenggatWaktu;
     private Buku buku;
+
+    public transaksiPeminjaman(int idTransaksi, double noAnggota, double noISBN, String tanggalPeminjaman, String tenggatWaktu, Buku buku) {
+        this.idTransaksi = idTransaksi;
+        this.noAnggota = noAnggota;
+        this.noISBN = noISBN;
+        this.tanggalPeminjaman = tanggalPeminjaman;
+        this.tenggatWaktu = tenggatWaktu;
+        this.buku = buku;
+    }
+
     public transaksiPeminjaman(Buku buku){
         this.buku = buku;
     }
