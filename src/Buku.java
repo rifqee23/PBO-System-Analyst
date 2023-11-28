@@ -4,6 +4,13 @@ public class Buku {
     private String noISBN;
     private String statusKetersediaan;
 
+    public Buku(int idBuku, String judul, String noISBN, String statusKetersediaan) {
+        this.idBuku = idBuku;
+        this.judul = judul;
+        this.noISBN = noISBN;
+        this.statusKetersediaan = statusKetersediaan;
+    }
+
     public int getIdBuku() {
         return idBuku;
     }
