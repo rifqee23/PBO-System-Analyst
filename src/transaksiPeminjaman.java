@@ -6,11 +6,15 @@ public class transaksiPeminjaman extends anggotaPerpustakaan{
     private double noISBN;
     private String tanggalPeminjaman;
     private String tenggatWaktu;
-    private final Buku buku;
+    private Buku buku;
     public transaksiPeminjaman(Buku buku){
         this.buku = buku;
     }
     public void catatanPeminjaman(){
-        super.viewRiwayatPeminjaman();
+        System.out.println("Catatan Peminjaman: Transaksi " + this.idTransaksi + ", Anggota " + this.noAnggota +
+                ", Buku ISBN " + this.noISBN + ", Tanggal Peminjaman " + this.tanggalPeminjaman +
+                ", Tenggat Waktu " + this.tenggatWaktu +
+                "\nID Buku " + this.buku.getIdBuku() + "Judul " + this.buku.getJudul() + "NO ISBN " +
+                this.buku.getNoISBN() + "Status Ketersediaan : " + this.buku.getStatusKetersediaan());
     }
 }
