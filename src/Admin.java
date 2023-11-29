@@ -18,20 +18,18 @@ public class Admin {
         daftarbuku.add(buku);
         System.out.println("Berhasil Menambah Buku " + judul);
     }
-    
-    public void hapusBuku(String judul){
-        for(Buku v : daftarbuku){
-            if(v.getJudul().contains(judul)){
-                daftarbuku.remove(v);
-                System.out.println("Berhasil Menghapus Buku " + judul);
-                System.out.println(" ");
-            }
-        }
-    }    
-    public void addAnggota(String nama, int noAnggota, String alamat){
-        anggotaPerpustakaan a = new anggotaPerpustakaan(nama, noAnggota, alamat);
-        daftarAnggota.add(a);
+
+    public void hapusBuku(String judul) {
+        daftarbuku.removeIf(v -> v.getJudul().contains(judul));
+        System.out.println("Berhasil Menghapus Buku " + judul);
+        System.out.println(" ");
     }
+
+    public void addAnggota(String nama, int noAnggota, String alamat, Admin adm){
+        anggotaPerpustakaan a = new anggotaPerpustakaan(nama, noAnggota, alamat, adm);
+
+    }
+
     
     public void lihatAnggota(){
         StringBuilder daftar = new StringBuilder();
