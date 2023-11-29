@@ -1,13 +1,11 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 import java.time.LocalDate;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Admin admin = new Admin(1, "Josh");
         Scanner scanner = new Scanner(System.in);
         anggotaPerpustakaan agt = new anggotaPerpustakaan("Rifki", 1212, "Gang Kopi", admin);
-
 
         while (true) {
             System.out.println("Menu:");
@@ -45,7 +43,7 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Masukkan alamat anggota: ");
                     String alamatAnggota = scanner.nextLine();
-                    admin.addAnggota(namaAnggota, nomorAnggota, alamatAnggota);
+                    admin.addAnggota(namaAnggota, nomorAnggota, alamatAnggota, admin);
                     break;
                 case 4:
                     admin.lihatAnggota();
@@ -53,7 +51,6 @@ public class Main {
                 case 5:
                     System.out.print("Masukkan judul buku yang ingin dipinjam: ");
                     String judulPinjam = scanner.nextLine();
-
                     System.out.println("Pilih anggota untuk melakukan peminjaman:");
                     for (int i = 0; i < admin.daftarAnggota.size(); i++) {
                         System.out.println((i + 1) + ". " + admin.daftarAnggota.get(i).getNama());
@@ -154,7 +151,5 @@ public class Main {
                     break;
             }
         }
-
-
     }
 }
