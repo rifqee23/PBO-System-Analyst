@@ -1,63 +1,56 @@
-import java.util.List;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class Admin {
     private int idAdmin;
-    private String namaAdmin;
-    private String peran;
-    private List<String> aktivitasList;
+    private String nama;
 
-    public Admin(int idAdmin, String namaAdmin, String peran, List<String> aktivitasList) {
+    public Admin(int idAdmin, String nama) {
         this.idAdmin = idAdmin;
-        this.namaAdmin = namaAdmin;
-        this.peran = peran;
-        this.aktivitasList = aktivitasList;
+        this.nama = nama;
     }
-
-    public int getIdAdmin() {
-        return idAdmin;
-    }
-
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
-    }
-
-    public String getNamaAdmin() {
-        return namaAdmin;
-    }
-
-    public void setNamaAdmin(String namaAdmin) {
-        this.namaAdmin = namaAdmin;
-    }
-
-    public String getPeran() {
-        return peran;
-    }
-
-    public void setPeran(String peran) {
-        this.peran = peran;
-    }
-
-    public List<String> getAktivitasList() {
-        return aktivitasList;
-    }
-
-    public void setAktivitasList(List<String> aktivitasList) {
-        this.aktivitasList = aktivitasList;
+    ArrayList<anggotaPerpustakaan> daftarAnggota = new ArrayList<>();
+    ArrayList<Buku> daftarbuku = new ArrayList<>();
+    
+    public void addBuku(int idBuku, String judul, String noISBN, String statusKetersediaan){
+        Buku buku = new Buku(idBuku, judul, noISBN, statusKetersediaan);
+        daftarbuku.add(buku);
+        System.out.println("Berhasil Menambah Buku " + judul);
     }
     
-    public void aturAnggota(){
-        System.out.println("Admin " + namaAdmin + peran + " anggota.");
+    public void hapusBuku(String judul){
+        for(Buku v : daftarbuku){
+            if(v.getJudul().contains(judul)){
+                daftarbuku.remove(v);
+                System.out.println("Berhasil Menghapus Buku " + judul);
+                System.out.println(" ");
+            }
+        }
+    }    
+    public void addAnggota(String nama, int noAnggota, String alamat){
+        anggotaPerpustakaan a = new anggotaPerpustakaan(nama, noAnggota, alamat);
+        daftarAnggota.add(a);
     }
     
-    public void aturBuku(){
-        System.out.println("Admin " + namaAdmin + peran + " buku.");
-    }
-    
-    public void laporanAktivitas(){
-        System.out.println("Laporan Aktivitas Admin " + namaAdmin + ": ");
-        System.out.println();
-        for (String aktivitas : aktivitasList) {
-            System.out.println(aktivitas);
+    public void lihatAnggota(){
+        StringBuilder daftar = new StringBuilder();
+        System.out.println("\nDaftar Anggota Perpus");
+        for(anggotaPerpustakaan v : daftarAnggota){
+            daftar.append("Nama : " + v.getNama())
+                    .append("\nNomor : " + v.getNoAnggota())
+                    .append("\nAlamat : " + v.getAlamat() + "\n\n");
+            System.out.println(daftar.toString());
         }
     }
+
+    public void kirimNotifikasi(anggotaPerpustakaan anggota, int idNotif, int noAnggota, String pesan, LocalDate now) {
+        LocalDate timeStamp = LocalDate.now();
+        Notifikasi notifikasi = new Notifikasi(idNotif, noAnggota, pesan, timeStamp);
+        anggota.notif.add(notifikasi);
+    }
+
+
+
 
 }
