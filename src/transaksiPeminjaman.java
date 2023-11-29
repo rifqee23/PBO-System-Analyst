@@ -1,16 +1,20 @@
-public class transaksiPeminjaman {
+import java.time.LocalDate;
+
+public class transaksiPeminjaman extends anggotaPerpustakaan{
     private int idTransaksi;
     private int noAnggota;
-    private double noISBN;
-    private String tanggalPeminjaman;
-    private String tenggatWaktu;
+    private int noISBN;
+    private LocalDate tanggalPeminjaman;
+    private LocalDate tenggatWaktu;
+    private Buku buku;
 
-    public transaksiPeminjaman(int idTransaksi, int noAnggota, double noISBN, String tanggalPeminjaman, String tenggatWaktu) {
+    public transaksiPeminjaman(int idTransaksi, int noAnggota, int noISBN, LocalDate tanggalPeminjaman, LocalDate tenggatWaktu, Buku buku) {
         this.idTransaksi = idTransaksi;
         this.noAnggota = noAnggota;
         this.noISBN = noISBN;
         this.tanggalPeminjaman = tanggalPeminjaman;
         this.tenggatWaktu = tenggatWaktu;
+        this.buku = buku;
     }
 
     public int getIdTransaksi() {
@@ -21,41 +25,60 @@ public class transaksiPeminjaman {
         this.idTransaksi = idTransaksi;
     }
 
+    @Override
     public int getNoAnggota() {
         return noAnggota;
     }
 
+    @Override
     public void setNoAnggota(int noAnggota) {
         this.noAnggota = noAnggota;
     }
 
-    public double getNoISBN() {
+    public int getNoISBN() {
         return noISBN;
     }
 
-    public void setNoISBN(double noISBN) {
+    public void setNoISBN(int noISBN) {
         this.noISBN = noISBN;
     }
 
-    public String getTanggalPeminjaman() {
+    public LocalDate getTanggalPeminjaman() {
         return tanggalPeminjaman;
     }
 
-    public void setTanggalPeminjaman(String tanggalPeminjaman) {
+    public void setTanggalPeminjaman(LocalDate tanggalPeminjaman) {
         this.tanggalPeminjaman = tanggalPeminjaman;
     }
 
-    public String getTenggatWaktu() {
+    public LocalDate getTenggatWaktu() {
         return tenggatWaktu;
     }
 
-    public void setTenggatWaktu(String tenggatWaktu) {
+    public void setTenggatWaktu(LocalDate tenggatWaktu) {
         this.tenggatWaktu = tenggatWaktu;
     }
-    
+
+    public Buku getBuku() {
+        return buku;
+    }
+
+    public void setBuku(Buku buku) {
+        this.buku = buku;
+    }
+
+
     public void catatanPeminjaman(){
-        System.out.println("Catatan Peminjaman: Transaksi " + idTransaksi + ", Anggota " + noAnggota +
-                ", Buku ISBN " + noISBN + ", Tanggal Peminjaman " + tanggalPeminjaman +
-                ", Tenggat Waktu " + tenggatWaktu);
+        System.out.println("ID Transaksi: " + this.idTransaksi);
+        System.out.println("Nomor anggota: " + this.noAnggota);
+        System.out.println("Nomor ISBN: " + this.noISBN);
+        System.out.println("Tanggal peminjaman: " + this.tanggalPeminjaman);
+        System.out.println("Tanggal pengembalian: " + this.tenggatWaktu);
+
+        System.out.println("Informasi buku:");
+        System.out.println("ID buku: " + buku.getIdBuku());
+        System.out.println("Judul: " + buku.getJudul());
+        System.out.println("Nomor ISBN: " + buku.getNoISBN());
+        System.out.println("Status ketersediaan: " + buku.getStatusKetersediaan());
     }
 }
